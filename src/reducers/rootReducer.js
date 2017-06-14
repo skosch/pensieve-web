@@ -1,21 +1,10 @@
-import update from 'immutability-helper';
+import { combineReducers } from 'redux';
 
-export default function thoughtReducer(state = {thoughts: []}, action = null) {
-    const {type, payload} = action;
-    switch (type) {
+import thoughtReducer from './thoughtReducer';
+import uiReducer from './uiReducer';
 
-      case 'thought_add':
-        return update(state, {
-          thoughts: {$push: [state.currentThoughtInputValue]},
-          currentThoughtInputValue: {$set: ""},
-        });
+export default combineReducers({
+  thoughts: thoughtReducer, 
+  ui: uiReducer
+});
 
-      case 'thought_update_current_value':
-        return update(state, {
-          currentThoughtInputValue: {$set: payload},
-        });
-
-    default:
-        return state;
-    }
-}

@@ -6,8 +6,19 @@ export function thoughtUpdateCurrentValue(value) {
 }
 
 export function thoughtAdd() {
-  return {
-    type: 'thought_add',
-    payload: null
-  };
+  return (dispatch, getState) => {
+    const newThought = {
+      timestamp: (new Date()).getTime(),
+      text: getState().ui.currentThoughtInputValue,
+    };
+
+    dispatch({
+      type: 'thought_add',
+      payload: newThought,
+    });
+    dispatch({
+      type: 'thought_update_current_value',
+      payload: '',
+    });
+  }
 }

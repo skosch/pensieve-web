@@ -6,7 +6,7 @@ class ThoughtListComponent extends Component {
     return (
       <div> 
         {(this.props.thoughts || []).map((t, ti) => (
-          <p key={ti}>{t}</p>
+          <p key={ti}>{t.timestamp}: {t.text}</p>
         ))}
       </div>
     );
@@ -14,10 +14,10 @@ class ThoughtListComponent extends Component {
 }
 
 export default connect(
-  (state) => {
+  ({ui, thoughts}) => {
     return {
-      currentThoughtInputValue: state.currentThoughtInputValue,
-      thoughts: state.thoughts,
+      currentThoughtInputValue: ui.currentThoughtInputValue,
+      thoughts: thoughts.thoughts,
     };
   },
   null

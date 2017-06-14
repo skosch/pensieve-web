@@ -22,9 +22,9 @@ class ThoughtInputComponent extends Component {
 }
 
 export default connect(
-  (state) => {
+  ({ui}) => {
     return {
-      currentThoughtInputValue: state.currentThoughtInputValue
+      currentThoughtInputValue: ui.currentThoughtInputValue
     };
   },
   thoughtActionCreator
