@@ -22,3 +22,10 @@ export function thoughtAdd() {
     });
   }
 }
+
+export function thoughtDeleteByTimestamp(timestamp) {
+  return {
+    type: 'thought_delete_by_timestamp',
+    payload: timestamp,
+  }
+}

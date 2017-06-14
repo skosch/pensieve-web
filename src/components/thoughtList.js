@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as thoughtActionCreator from '../actions/thoughtActions';
+
+import Thought from './Thought';
 
 class ThoughtListComponent extends Component {
   render() {
     return (
       <div> 
         {(this.props.thoughts || []).map((t, ti) => (
-          <p key={ti}>{t.timestamp}: {t.text}</p>
+          <Thought
+            key={ti}
+            thought={t}
+            delete={this.props.thoughtDeleteByTimestamp}
+          />
         ))}
       </div>
     );
@@ -20,5 +27,5 @@ export default connect(
       thoughts: thoughts.thoughts,
     };
   },
-  null
+  thoughtActionCreator
 )(ThoughtListComponent);
