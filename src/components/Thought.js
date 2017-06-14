@@ -6,9 +6,12 @@ class ThoughtComponent extends Component {
   render() {
     const {thought} = this.props;
     return (
-      <div>
-        <p>{thought.timestamp}: {thought.text}</p>
-        <span onClick={this.delete}>Delete</span>
+      <div className="thought">
+        <div className="timestamp">{thought.timestamp}</div>
+        <div className="text">{thought.text}</div>
+        <div className="actions">
+          <span onClick={this.delete}>&times;</span>
+        </div>
       </div>
     );
   }

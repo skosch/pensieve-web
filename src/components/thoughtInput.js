@@ -5,16 +5,23 @@ import * as thoughtActionCreator from '../actions/thoughtActions';
 class ThoughtInputComponent extends Component {
   updateValue = (e) => this.props.thoughtUpdateCurrentValue(e.target.value)
   
+  onKeyPress = (e) => {
+    if (e.key === "Enter" && e.shiftKey) {
+      this.props.thoughtAdd();
+    }
+  }
+
   render() {
     return (
-      <div> 
+      <div className="thoughtinput"> 
         <input
           value={this.props.currentThoughtInputValue}
           onChange={this.updateValue}
           type="text"
+          onKeyPress={this.onKeyPress}
         />
         <button onClick={this.props.thoughtAdd} type="submit">
-          Submit
+          &rarr;
         </button>
       </div>
     );

@@ -9,7 +9,7 @@ const thoughtReducer = (state = {}, action = null) => {
   switch (type) {
     case 'thought_add':
       return update(state, {
-        thoughts: {$push: [payload]},
+        thoughts: {$unshift: [payload]},
         currentThoughtInputValue: {$set: ""},
       });
 

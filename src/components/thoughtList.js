@@ -4,11 +4,27 @@ import * as thoughtActionCreator from '../actions/thoughtActions';
 
 import Thought from './Thought';
 
+const filterThoughts = (thoughts, search) => {
+  let results = [];
+  for (let i = 0, l = thoughts.length; i < l; i++) {
+    if (thoughts[i].text.indexOf(search) >= 0) {
+      results.push(thoughts[i]);
+    }
+  }
+  return results;
+}
+
 class ThoughtListComponent extends Component {
   render() {
+    const {thoughts, currentThoughtInputValue} = this.props;
+    let filteredThoughts = thoughts;
+    if (currentThoughtInputValue.startsWith("/")) {
+      filteredThoughts = filterThoughts(this.props.thoughts, this.props.currentThoughtInputValue.slice(1));
+    }
+
     return (
       <div> 
-        {(this.props.thoughts || []).map((t, ti) => (
+        {filteredThoughts.map((t, ti) => (
           <Thought
             key={ti}
             thought={t}
