@@ -1,3 +1,5 @@
+import inputPipes from '../pipes/input.js';
+
 export function thoughtUpdateCurrentValue(value) {
   return {
     type: 'thought_update_current_value',
@@ -7,9 +9,15 @@ export function thoughtUpdateCurrentValue(value) {
 
 export function thoughtAdd() {
   return (dispatch, getState) => {
+    const currentInput = getState().ui.currentThoughtInputValue;
+
+    const {sanitizedText, metadata} = inputPipes(currentInput);
+
     const newThought = {
       timestamp: (new Date()).getTime(),
-      text: getState().ui.currentThoughtInputValue,
+      text: currentInput,
+      sanitizedText,
+      metadata,
     };
 
     dispatch({

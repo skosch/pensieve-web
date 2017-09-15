@@ -6,14 +6,21 @@ import './App.css';
 import ThoughtInput from './components/thoughtInput';
 import ThoughtList from './components/thoughtList';
 
+import Upcoming from './components/Upcoming';
+
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
-      <div className="app-container">
-        <ThoughtInput />
-        <ThoughtList />
-      </div>
+        <div>
+          <div className="thought-stream">
+            <ThoughtInput />
+            <ThoughtList />
+          </div>
+          <div className="sidebar">
+            <Upcoming />
+          </div>
+        </div>
       </Provider>
     );
   }

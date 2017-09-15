@@ -1,0 +1,25 @@
+Events and reminders
+
+Thought should show up on the dashboard during a certain date range.
+
+{Aug1} -> next august 1, midnight to midnight
+
+Start a reminder two days before
+
+{Aug 1, 2018 10am-12pm !2 weeks} -> {
+  reminder: "2018-07-15 10:00",
+  start_date: "2018-08-01 10:00",
+  end_date: "2018-08-01 12:00",
+}
+
+Set a reminder without an actual event
+
+{!2 weeks} -> Reminder from now until two weeks from now
+{RANGE !2 weeks} -> Reminder from 2 weeks before the range until the start point of the range
+{RANGE} -> Show in calendar, no reminder
+{RANGE R REPEAT !4 days} -> Set event range, set repeat, set reminder 4 days before the start point of every repeat
+
+*{Place} -> Place
+
+@person -> tag person
+

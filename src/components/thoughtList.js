@@ -23,7 +23,8 @@ class ThoughtListComponent extends Component {
     }
 
     return (
-      <div> 
+      <div className="app-container">
+        <div>
         {filteredThoughts.map((t, ti) => (
           <Thought
             key={ti}
@@ -32,6 +33,7 @@ class ThoughtListComponent extends Component {
           />
         ))}
       </div>
+    </div>
     );
   }
 }

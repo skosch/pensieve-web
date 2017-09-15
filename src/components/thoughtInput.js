@@ -13,16 +13,19 @@ class ThoughtInputComponent extends Component {
 
   render() {
     return (
-      <div className="thoughtinput"> 
-        <input
-          value={this.props.currentThoughtInputValue}
-          onChange={this.updateValue}
-          type="text"
-          onKeyPress={this.onKeyPress}
-        />
-        <button onClick={this.props.thoughtAdd} type="submit">
-          &rarr;
-        </button>
+      <div className="input-bar">
+        <div className="app-container thoughtinput"> 
+          <input
+            value={this.props.currentThoughtInputValue}
+            onChange={this.updateValue}
+            type="text"
+            onKeyPress={this.onKeyPress}
+            spellCheck={false}
+          />
+          <button onClick={this.props.thoughtAdd} type="submit">
+            &rarr;
+          </button>
+        </div>
       </div>
     );
   }

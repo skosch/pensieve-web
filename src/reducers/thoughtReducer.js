@@ -24,4 +24,4 @@ const thoughtReducer = (state = {}, action = null) => {
   }
 }
 
-export default persistentReducer(thoughtReducer);
+export default persistentReducer(thoughtReducer, "thoughtReducer");
