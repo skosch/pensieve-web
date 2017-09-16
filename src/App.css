@@ -70,6 +70,18 @@ button {
   font-family: 'DINPro';
 }
 
+.thought-hashtag {
+  color: red;
+}
+
+.thought-contact {
+  color: green;
+}
+
+.thought-temporal {
+  color: orange;
+}
+
 .thought .text {
   font-family: 'DINPro';
   font-size: 1.2rem;
